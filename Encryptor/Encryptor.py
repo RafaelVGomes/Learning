@@ -6,7 +6,7 @@ system('cls')
 inp = input("Digite texto para codificar: ")
 inp = list(inp)
 
-#This is the Shift Value. It'll say how many letters we'll be displaced.
+#This is the Shift Value. It'll say how many letters will be displaced.
 svStatus = False
 while svStatus == False:
     try:
