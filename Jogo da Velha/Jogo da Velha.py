@@ -1,4 +1,5 @@
 from os import system
+from random import choice
 
 board = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
 sign = 0
@@ -118,8 +119,7 @@ def victory_for(board, sign):
 
 def draw_move(board):
     make_list_of_free_fields(board)
-    from random import choice
-
+    
     nove = False
     
     while nove == False:
