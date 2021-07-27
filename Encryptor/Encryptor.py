@@ -1,12 +1,12 @@
 from os import system
 system('cls')
-#This program should encrypt sentences using a key between 1 and 25.
-#Using default values for now. 
+#This program should encrypt sentences using a key between 1 and 24. And can't change numbers and any other char.
+#Mixing portuguese and english language on porpose.
 
 inp = input("Digite texto para codificar: ")
 inp = list(inp)
 
-#This is the Shift Value. It'll say how many letters will be displaced.
+#This is the Shift Value. It'll say how many houses letters will be displaced.
 svStatus = False
 while svStatus == False:
     try:
@@ -22,7 +22,6 @@ while svStatus == False:
     except ValueError:
         print("Entrada inválida. Use apenas números.")
         svStatus = False
-
 
 #Encrypted sentence at the end.
 cipher = ''
