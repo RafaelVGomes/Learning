@@ -1,6 +1,6 @@
 from os import system
 system('cls')
-#This program shold encrypt sentences using a key between 1 and 25.
+#This program should encrypt sentences using a key between 1 and 25.
 #Using default values for now. 
 
 inp = input("Digite texto para codificar: ")
@@ -30,22 +30,25 @@ cipher = ''
 for char in inp:
     if not char.isalpha():
         cipher += char
+        print("C0:", char, ord(char))
         continue
     
-    if char == 'Z':
-        char2 = 65 + (sv - 1)
-        cipher += chr(char2)
-        char2 = chr(char2)
+    code = ord(char) + sv
     
-    elif char == 'z':
-        char3 = 97 + (sv - 1)
-        cipher += chr(char3)
-        char3 = chr(char3)
-    
+    if code > 90 and code < 97:
+        code3 = (code - 91) + 65
+        print("C2:", chr(code3), code3)
+        cipher += chr(code3)
+
+    elif code > 122:
+        code2 = (code - 123) + 97
+        print("C2:", chr(code2), code2)
+        cipher += chr(code2)
+
     else:
-        char4 = ord(char) + sv
-        cipher += chr(char4)
-    
+        print("C1:", chr(code), code)
+        cipher += chr(code)
+   
 print()
 print("Criptografado:", cipher)
 print()
