@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from random import choice
 from os import system, name
 cls = lambda: system('cls' if name=='nt' else 'clear')
 
@@ -13,25 +14,26 @@ class JogoDaVelha:
         self.casa = casa
             
     def Grade(self):
+        casa = self.casa
         cls()
         print('+---+---+---+')
-        print('|', self.casa[0][0] ,'|', self.casa[0][1] ,'|', self.casa[0][2] ,'|')
+        print('|', casa[0][0] ,'|', casa[0][1] ,'|', casa[0][2] ,'|')
         print('+---+---+---+')
-        print('|', self.casa[1][0] ,'|', self.casa[1][1] ,'|', self.casa[1][2] ,'|')
+        print('|', casa[1][0] ,'|', casa[1][1] ,'|', casa[1][2] ,'|')
         print('+---+---+---+')
-        print('|', self.casa[2][0] ,'|', self.casa[2][1] ,'|', self.casa[2][2] ,'|')
+        print('|', casa[2][0] ,'|', casa[2][1] ,'|', casa[2][2] ,'|')
         print('+---+---+---+')
 
     def CasasLivres(self):
         casas = self.casa
         for i in range(0, len(casas)):
-            for j in casas[i]:
-                if j != "X" and j != "O":
-                    CasasVazias.append(j)
+            for j in range(0, len(casas[i])):
+                if casas[i][j] != "X" and casas[i][j] != "O":
+                    CasasVazias.append(casas[i][j])
         
     def Jogador(self):
-        Jogo.Grade()
         Jogo.CasasLivres()
+        Jogo.Grade()
         casa = self.casa
         e = False
         while e == False:
@@ -54,14 +56,27 @@ class JogoDaVelha:
                         for y in range(len(casa[x])):
                             if escolha == casa[x][y]:
                                 casa[x][y] = "O"
-                                Jogo.Grade()
-                                e = False
-
+                                Jogo.CasasLivres()
+                                e = True           
             except ValueError:
                 Jogo.Grade()
                 print("Entrada inválida. Use apenas números.")
                 e = False
         
+        Jogo.Computador()
+        
+    def Computador(self):
+        casa = self.casa
+        comp_escolha = choice(CasasVazias)
+        for x in range(0, len(casa)):
+            for y in range(len(casa[x])):
+                if comp_escolha == casa[x][y]:
+                    casa[x][y] = "X"
+                    Jogo.Jogador()
+        
+
+
+
 Jogo = JogoDaVelha(ArrayCasas)
 
 Jogo.Jogador()
