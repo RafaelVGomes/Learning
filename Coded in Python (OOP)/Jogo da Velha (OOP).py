@@ -36,8 +36,7 @@ class JogoDaVelha:
         e = False
         while e == False:
             try:
-                print('Escolha uma casa ou digite "0" para sair:' )
-                escolha = int(input())
+                escolha = int(input('Escolha uma casa ou digite "0" para sair: '))
                 if escolha == 0:
                     e = True
 
