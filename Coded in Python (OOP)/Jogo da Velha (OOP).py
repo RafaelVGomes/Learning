@@ -5,11 +5,14 @@ cls = lambda: system('cls' if name=='nt' else 'clear')
 
 ArrayCasas = [
             [1, 2, 3],
-            [4, "X", 6],
+            [4, 5, 6],
             [7, 8, 9]
             ]
-CasasVazias = []
+
 class JogoDaVelha:
+
+    vazio = []
+    
     def __init__(self, casa):
         self.casa = casa
             
@@ -23,19 +26,22 @@ class JogoDaVelha:
         print('+---+---+---+')
         print('|', casa[2][0] ,'|', casa[2][1] ,'|', casa[2][2] ,'|')
         print('+---+---+---+')
-
+        self.vazio = []
+        Jogo.CasasLivres()
+        
     def CasasLivres(self):
         casas = self.casa
+        v = self.vazio
         for i in range(0, len(casas)):
             for j in range(0, len(casas[i])):
                 if casas[i][j] != "X" and casas[i][j] != "O":
-                    CasasVazias.append(casas[i][j])
+                    v.append(casas[i][j])
         
     def Jogador(self):
-        Jogo.CasasLivres()
         Jogo.Grade()
         casa = self.casa
         e = False
+        
         while e == False:
             try:
                 escolha = int(input('Escolha uma casa ou digite "0" para sair: '))
@@ -46,17 +52,16 @@ class JogoDaVelha:
                     Jogo.Grade()
                     print("Número inválido. Tente de 1 a 9.")
                     
-                elif escolha not in CasasVazias:
+                elif escolha not in self.vazio:
                     Jogo.Grade()
                     print("Casa ocupada. Tente outra.")
-                    print("Casas livres:", CasasVazias)
+                    print("Casas livres:", self.vazio)
                 
                 else:
                     for x in range(0, len(casa)):
                         for y in range(len(casa[x])):
                             if escolha == casa[x][y]:
                                 casa[x][y] = "O"
-                                Jogo.CasasLivres()
                                 e = True           
             except ValueError:
                 Jogo.Grade()
@@ -67,15 +72,14 @@ class JogoDaVelha:
         
     def Computador(self):
         casa = self.casa
-        comp_escolha = choice(CasasVazias)
+        comp_escolha = choice(self.vazio)
         for x in range(0, len(casa)):
             for y in range(len(casa[x])):
                 if comp_escolha == casa[x][y]:
                     casa[x][y] = "X"
                     Jogo.Jogador()
         
-
-
+   
 
 Jogo = JogoDaVelha(ArrayCasas)
 
