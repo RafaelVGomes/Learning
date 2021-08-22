@@ -4,7 +4,7 @@ cls = lambda: system('cls' if name=='nt' else 'clear')
 
 ArrayCasas = [
             [1, 2, 3],
-            [4, 5, 6],
+            [4, "X", 6],
             [7, 8, 9]
             ]
 CasasVazias = []
@@ -24,7 +24,7 @@ class JogoDaVelha:
 
     def CasasLivres(self):
         casas = self.casa
-        for i in casas:
+        for i in range(0, len(casas)):
             for j in casas[i]:
                 if j != "X" and j != "O":
                     CasasVazias.append(j)
@@ -47,7 +47,7 @@ class JogoDaVelha:
                 elif escolha not in CasasVazias:
                     Jogo.Grade()
                     print("Casa ocupada. Tente outra.")
-                    print("Vazias:", CasasVazias)
+                    print("Casas livres:", CasasVazias)
                 
                 else:
                     e = True
