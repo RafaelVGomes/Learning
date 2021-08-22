@@ -32,6 +32,7 @@ class JogoDaVelha:
     def Jogador(self):
         Jogo.Grade()
         Jogo.CasasLivres()
+        casa = self.casa
         e = False
         while e == False:
             try:
@@ -50,7 +51,12 @@ class JogoDaVelha:
                     print("Casas livres:", CasasVazias)
                 
                 else:
-                    e = True
+                    for x in range(0, len(casa)):
+                        for y in range(len(casa[x])):
+                            if escolha == casa[x][y]:
+                                casa[x][y] = "O"
+                                Jogo.Grade()
+                                e = False
 
             except ValueError:
                 Jogo.Grade()
