@@ -1,13 +1,19 @@
 #!/usr/bin/python3
-import numpy as np
 from os import system, name
 cls = lambda: system('cls' if name=='nt' else 'clear')
 
-ArrayCasas = [[1, 2, 3],[4, 5, 6],[7, 8, 9]]
+ArrayCasas = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+            ]
 CasasVazias = []
 class JogoDaVelha:
     def __init__(self, casa):
         self.casa = casa
+            
+    def Grade(self):
+        cls()
         print('+---+---+---+')
         print('|', self.casa[0][0] ,'|', self.casa[0][1] ,'|', self.casa[0][2] ,'|')
         print('+---+---+---+')
@@ -15,24 +21,43 @@ class JogoDaVelha:
         print('+---+---+---+')
         print('|', self.casa[2][0] ,'|', self.casa[2][1] ,'|', self.casa[2][2] ,'|')
         print('+---+---+---+')
-  
+
     def CasasLivres(self):
-        if self.casa != "X" and self.casa != "O":
-            pass
-    
-    def Jogador(self):
-        pass
-
-    def Computador(self):
-        pass
-    
-    def Atualizar(self):
-        pass
+        casas = self.casa
+        for i in casas:
+            for j in casas[i]:
+                if j != "X" and j != "O":
+                    CasasVazias.append(j)
         
-    def FimDeJogo():
-        pass
+    def Jogador(self):
+        Jogo.Grade()
+        Jogo.CasasLivres()
+        e = False
+        while e == False:
+            try:
+                print('Escolha uma casa ou digite "0" para sair:' )
+                escolha = int(input())
+                if escolha == 0:
+                    e = True
 
-cls()
-obj = JogoDaVelha(ArrayCasas)
+                elif escolha < 0 or escolha > 9:
+                    Jogo.Grade()
+                    print("Número inválido. Tente de 1 a 9.")
+                    
+                elif escolha not in CasasVazias:
+                    Jogo.Grade()
+                    print("Casa ocupada. Tente outra.")
+                    print("Vazias:", CasasVazias)
+                
+                else:
+                    e = True
 
-print(obj())
+            except ValueError:
+                Jogo.Grade()
+                print("Entrada inválida. Use apenas números.")
+                e = False
+        
+Jogo = JogoDaVelha(ArrayCasas)
+
+Jogo.Jogador()
+
