@@ -46,7 +46,7 @@ class JogoDaVelha:
             try:
                 escolha = int(input('Escolha uma casa ou digite "0" para sair: '))
                 if escolha == 0:
-                    e = True
+                    exit(0)
 
                 elif escolha < 0 or escolha > 9:
                     Jogo.Grade()
@@ -67,7 +67,7 @@ class JogoDaVelha:
                 Jogo.Grade()
                 print("Entrada inválida. Use apenas números.")
                 e = False
-        
+        Jogo.Vencedor()
         Jogo.Computador()
         
     def Computador(self):
@@ -77,9 +77,32 @@ class JogoDaVelha:
             for y in range(len(casa[x])):
                 if comp_escolha == casa[x][y]:
                     casa[x][y] = "X"
+                    Jogo.Vencedor()
                     Jogo.Jogador()
         
-   
+    def Vencedor(self):
+        casas = self.casa
+        temp = []
+        c1 = 0
+        c2 = 1
+
+        # Checando colunas
+        while c2 < 4:
+            for i in range(0, 3):
+                for j in range(c1, c2):
+                    temp.append(casas[i][j])
+            
+            if temp == ["X", "X", "X"]:
+                Jogo.Grade()
+                print("Você perdeu")
+            
+            if temp == ["O", "O", "O"]:
+                Jogo.Grade()
+                print("Você venceu!")
+            
+            temp = []        
+            c1 += 1
+            c2 += 1
 
 Jogo = JogoDaVelha(ArrayCasas)
 
