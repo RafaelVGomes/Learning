@@ -1,7 +1,7 @@
 ArrayCasas = [
             [1, 2, 3],
             [4, 5, 6],
-            [7, 8, 9]
+            ["X", "X", "X"]
             ]
 
 temp = []
@@ -11,7 +11,7 @@ for i in range(0, 3):
     temp = []
     temp.append(ArrayCasas[i])
     print(temp)
-    if temp == ["X", "X", "X"]:
+    if temp == [["X", "X", "X"]]:
         print("Você perdeu")
         break
 

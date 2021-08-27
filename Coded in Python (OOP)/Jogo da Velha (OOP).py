@@ -67,7 +67,7 @@ class JogoDaVelha:
                 Jogo.Grade()
                 print("Entrada inválida. Use apenas números.")
                 e = False
-        Jogo.Vencedor()
+        Jogo.Resultado()
         Jogo.Computador()
         
     def Computador(self):
@@ -77,14 +77,26 @@ class JogoDaVelha:
             for y in range(len(casa[x])):
                 if comp_escolha == casa[x][y]:
                     casa[x][y] = "X"
-                    Jogo.Vencedor()
+                    Jogo.Resultado()
                     Jogo.Jogador()
         
-    def Vencedor(self):
+    def Resultado(self):
         casas = self.casa
         temp = []
         c1 = 0
         c2 = 1
+
+        # Checando linhas
+        for i in range(0, 3):
+            if temp == ["X", "X", "X"]:
+                Jogo.Grade()
+                print("Você perdeu")
+                break
+            
+            if temp == ["O", "O", "O"]:
+                Jogo.Grade()
+                print("Você venceu!")
+                break
 
         # Checando colunas
         while c2 < 4:
@@ -95,10 +107,12 @@ class JogoDaVelha:
             if temp == ["X", "X", "X"]:
                 Jogo.Grade()
                 print("Você perdeu")
+                break
             
             if temp == ["O", "O", "O"]:
                 Jogo.Grade()
                 print("Você venceu!")
+                break
             
             temp = []        
             c1 += 1
