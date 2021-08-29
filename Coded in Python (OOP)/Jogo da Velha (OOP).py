@@ -18,7 +18,7 @@ class JogoDaVelha:
     def Grade(self):
         casa = self.casa
         cls()
-        print("Nível: ", self.nível)
+        print("Nível:", self.nível)
         print('+---+---+---+')
         print('|', casa[0][0] ,'|', casa[0][1] ,'|', casa[0][2] ,'|')
         print('+---+---+---+')
