@@ -191,7 +191,4 @@ while e == False:
     
     except ValueError:
                 print("Tá me zuando?! Use números, zé ruela!")
-
-Jogo = JogoDaVelha(ArrayCasas)
-Jogo.Jogador()
-
+                
