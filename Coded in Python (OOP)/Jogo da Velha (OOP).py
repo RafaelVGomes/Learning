@@ -11,14 +11,14 @@ ArrayCasas = [
 
 class JogoDaVelha:
     
-    def __init__(self, casa, nível):
+    def __init__(self, casa, nivel):
         self.casa = casa
-        self.nível = nível
+        self.nivel = nivel
             
     def Grade(self):
         casa = self.casa
         cls()
-        print("Nível:", self.nível)
+        print("Nível:", self.nivel)
         print('+---+---+---+')
         print('|', casa[0][0] ,'|', casa[0][1] ,'|', casa[0][2] ,'|')
         print('+---+---+---+')
