@@ -157,21 +157,21 @@ cls()
 print("""Escolha o nível de dificuldade do tabuleiro:
 1. Normal
 2. Difícil
-3. Que porra é essa, véi?!""")
+3. Impossível""")
 
 e = False
 while e == False:
     try:
-        escolha = int(input('Ou digite "0" e vá pro colo da mamãe: '))
+        escolha = int(input('Ou digite "0" para sair: '))
         if escolha == 0:
-            print("Volta pra teta da tua mãe, neném!")
+            print("Até a próxima. Bye...")
             exit(0)
 
         elif escolha < 0 or escolha > 3:
-            print("É doido ou se faz?! De 1 a 3, mané!")
+            print("As opções são apenas 1, 2 e 3.")
 
         else:
-            D = {1: "Normal", 2: "Difícil", 3: "Que porra é essa, véi?!"}
+            D = {1: "Normal", 2: "Difícil", 3: "Impossível"}
             if escolha == 1:
                 Jogo = JogoDaVelha(ArrayCasas, D[escolha])
                 Jogo.Jogador()
@@ -190,5 +190,5 @@ while e == False:
                 Jogo.Jogador()
     
     except ValueError:
-                print("Tá me zuando?! Use números, zé ruela!")
+                print("Use números para escolher o nível")
                 
