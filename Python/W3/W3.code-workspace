@@ -5,7 +5,12 @@
 		}
 	],
 	"settings": {
-		"python.defaultInterpreterPath": "env/bin/python3.10"
+		"python.defaultInterpreterPath": "env/bin/python3.10",
+		"cSpell.words": [
+			"ndarrays",
+			"ndim",
+			"ndmin"
+		]
 	},
 	"launch": {
 		"version": "0.2.0",
