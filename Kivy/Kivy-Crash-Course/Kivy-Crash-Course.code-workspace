@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "env/bin/python3.10",
+		"kvlang.pythonPath": "env/bin/python3.10",
+		"python.analysis.packageIndexDepths":[["kivy",3]],
+		"materialkv.pythonFile": "main.py",
+		"cSpell.words": [
+			"gameover",
+			"kvlang",
+			"materialkv",
+			"relativelayout"
+		],
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Current File",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"justMyCode": true
+			}
+		]
+	}
+}
