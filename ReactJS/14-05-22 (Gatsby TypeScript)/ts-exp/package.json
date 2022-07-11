@@ -1,0 +1,44 @@
+{
+  "name": "ts-exp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ts-exp",
+  "author": "RafaelVGomes",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
+    "dev": "nodemon --exec 'kill-port --port 8000 && gatsby develop' --watch gatsby-config.ts --watch package.json"
+  },
+  "dependencies": {
+    "@types/sass": "^1.43.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.15.0",
+    "gatsby": "^4.14.1",
+    "gatsby-plugin-pnpm": "^1.2.10",
+    "gatsby-plugin-react-helmet": "^5.14.0",
+    "gatsby-plugin-sass": "^5.14.0",
+    "gatsby-source-filesystem": "^4.14.0",
+    "notenv": "^2.0.3",
+    "react": ">=16.9.0 <17.0.0 || >=17.0.0 <18.0.0",
+    "react-dom": ">=16.9.0 <17.0.0 || >=17.0.0 <18.0.0",
+    "react-helmet": "latest",
+    "sass": "^1.51.0",
+    "webpack": "^5.72.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.34",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "@types/react-helmet": "^6.1.5",
+    "esbuild": "^0.14.39",
+    "esbuild-register": "^3.3.2",
+    "typescript": "^4.6.4"
+  }
+}
