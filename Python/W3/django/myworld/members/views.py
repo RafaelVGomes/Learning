@@ -1,7 +1,46 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect as red, HttpResponse as res
 from django.template import loader
+from django.urls import reverse
+from .models import Members
 
 def index(request):
-  template = loader.get_template('myfirst.html')
-  return HttpResponse(template.render())
+  mymembers = Members.objects.all().values()
+  template = loader.get_template('index.html')
+  context = {
+    'mymembers': mymembers
+  }
+  return res(template.render(context, request))
+
+def add(request):
+  template = loader.get_template('add.html')
+  return res(template.render({}, request))
+
+def addrecord(request):
+  x = request.POST['first']
+  y = request.POST['last']
+  member = Members(firstname=x, lastname=y)
+  member.save()
+  return red(reverse('index'))
+
+def delete(request, id):
+  member = Members.objects.get(id=id)
+  member.delete()
+  return red(reverse('index'))
+
+def update(request, id):
+  mymember = Members.objects.get(id=id)
+  template = template = loader.get_template('update.html')
+  context = {
+    'mymember': mymember
+  }
+  return res(template.render(context, req))
+
+def updaterecord(request, id):
+  first = request.POST['first']
+  last = request.POST['last']
+  member = Members.objects.get(id=id)
+  member.firstname = first
+  member.lastname = last
+  member.save()
+  return red(reverse('index'))

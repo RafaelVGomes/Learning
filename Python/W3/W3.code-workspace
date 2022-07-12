@@ -8,11 +8,17 @@
 		// "python.defaultInterpreterPath": "./env/bin/python3.10",
 		"python.venvFolders": ["./django/env", "./numpy/env"],
 		"cSpell.words": [
+			"addrecord",
 			"django",
+			"firstname",
+			"lastname",
+			"mymember",
+			"mymembers",
 			"myworld",
 			"ndarrays",
 			"ndim",
 			"ndmin",
+			"updaterecord",
 			"venv"
 		]
 	},
