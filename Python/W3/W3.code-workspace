@@ -12,6 +12,7 @@
 			"django",
 			"firstname",
 			"lastname",
+			"mydata",
 			"mymember",
 			"mymembers",
 			"myworld",
